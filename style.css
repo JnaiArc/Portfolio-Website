@@ -229,55 +229,6 @@ body {
   animation: fadeUp 0.75s ease 0.45s forwards;
 }
 
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 8px;
-  opacity: 0;
-  animation: fadeUp 0.75s ease 0.55s forwards;
-}
-
-/* BUTTONS */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 28px;
-  border-radius: 8px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15.2px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background: var(--btn-bg);
-  color: var(--btn-text);
-  border: 1.5px solid transparent;
-  box-shadow: 0 0 0 0 var(--accent-glow);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px var(--accent-glow);
-  filter: brightness(1.08);
-}
-
-.btn-ghost {
-  background: transparent;
-  color: var(--text-primary);
-  border: 1.5px solid var(--border);
-}
-
-.btn-ghost:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateY(-2px);
-}
-
 /* RIGHT CONTENT */
 .hero-image-wrap {
   position: relative;
@@ -289,18 +240,21 @@ body {
   user-select: none;
 }
 
-.lanyard-card {
+.id-card {
   position: relative;
   width: 350px;
   transform-origin: top center;
   margin-top: -2px;
   cursor: default;
-  animation: cardSwing 2.4s cubic-bezier(0.36,0.07,0.19,0.97) 0.8s 1 both;
 }
 
-.lanyard-card:active { cursor: grabbing; }
+.id-card:active { 
+    cursor: grabbing; 
+}
 
-.lanyard-card:hover { filter: drop-shadow(0 12px 28px var(--accent-glow)); }
+.id-card:hover { 
+    filter: drop-shadow(0 12px 28px var(--accent-glow)); 
+}
 
 .card-clip {
   width: 32px;
@@ -361,6 +315,10 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .card-footer-bar {
@@ -441,13 +399,4 @@ body {
 @keyframes drift {
   from { transform: translate(0, 0) scale(1); }
   to   { transform: translate(30px, 20px) scale(1.06); }
-}
-
-@keyframes cardSwing {
-  0%   { transform: rotate(-8deg); }
-  20%  { transform: rotate(6deg); }
-  40%  { transform: rotate(-4deg); }
-  60%  { transform: rotate(3deg); }
-  80%  { transform: rotate(-1.5deg); }
-  100% { transform: rotate(0deg); }
 }
