@@ -19,7 +19,7 @@
 let swingAnimation = null;
 let velocity = 0;
 
-const card = document.getElementById("lanyardCard");
+const card = document.getElementById("idCard");
 
 let rotation = 0;
 let isDragging = false;
