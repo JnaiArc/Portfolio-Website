@@ -1,13 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonalyn Arcenal | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jonalyn Arcenal | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    
-    <script src="script.js"></script>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <span class="nav-logo">JCA<span class="dot">.</span></span>
+    <div class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+
+      <!-- LEFT: text content -->
+      <div class="hero-content">
+        <p class="hero-eyebrow">Hello, I'm</p>
+        <h1 class="hero-name">Jonalyn<br>Arcenal<span class="dot">.</span></h1>
+        <p class="hero-tagline">2nd Year IT Student <span class="divider">|</span> Aspiring Developer</p>
+        <p class="hero-intro">
+          I build things for the web — turning ideas into clean, functional digital experiences. Currently leveling up one project at a time.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Lanyard ID Card -->
+      <div class="hero-image-wrap">
+
+        <!-- Card -->
+        <div class="lanyard-card" id="lanyardCard">
+          <!-- clip at top -->
+          <div class="card-clip"></div>
+
+          <!-- card body -->
+          <div class="card-body">
+            <div class="card-header-bar">
+              <span class="card-org">PORTFOLIO</span>
+              <span class="card-year">2026</span>
+            </div>
+
+            <div class="card-photo-wrap">
+              <img
+                src="assets/profile-photo.jpg"
+                alt="Jnai Arcenal"
+                class="card-photo"
+              />
+
+            </div>
+
+            <div class="card-footer-bar">
+              <span class="card-id">ID: 202410613</span>
+              <span class="badge-dot"></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- decorative background orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </section>
+
+  <!-- PLACEHOLDER SECTIONS -->
+  <section id="about" class="walapa"></section>
+  <section id="projects" class="walapa"></section>
+  <section id="contact" class="walapa  "></section>
+
+  <script src="script.js"></script>
 </body>
-</html> 
+</html>
