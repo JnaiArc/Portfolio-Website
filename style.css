@@ -400,3 +400,92 @@ body {
   from { transform: translate(0, 0) scale(1); }
   to   { transform: translate(30px, 20px) scale(1.06); }
 }
+
+
+/* SOCIAL BAR */
+.social-bar {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 12px;
+  border-radius: 999px;
+
+  background: rgba(26, 26, 46, 0.275);
+  border: 1px solid rgba(124, 131, 253, 0.25);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+
+  z-index: 999;
+
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  animation: socialEnter 0.8s ease 0.4s forwards;
+}
+
+.social-bar:hover {
+  transform: translateY(-2px);
+  transition: 0.3s ease;
+}
+
+[data-theme="light"] .social-bar {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(92, 100, 240, 0.2);
+  box-shadow: 0 12px 30px rgba(92, 100, 240, 0.12);
+}
+
+/* ICON BUTTONS */
+.social-bar a {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  color: var(--text-muted);
+  transition: all 0.25s ease;
+
+  text-decoration: none;
+}
+
+.social-bar a:hover {
+  color: var(--accent);
+  background: var(--bg-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px var(--accent-glow);
+}
+
+.social-bar a:active {
+  transform: scale(0.95);
+}
+
+.social-bar a i {
+  font-size: 20px;
+  color: var(--text-muted);
+  transition: all 0.25s ease;
+}
+
+.social-bar a:hover i {
+  color: var(--accent);
+  transform: scale(1.15);
+}
+
+
+@keyframes socialEnter {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
