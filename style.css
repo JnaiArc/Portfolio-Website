@@ -97,6 +97,61 @@ body {
   color: var(--accent);
 }
 
+
+/* ---- Theme Toggle ---- */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 56px;
+  height: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 3px;
+  transition: background var(--transition), border var(--transition);
+}
+
+.toggle-thumb {
+  position: absolute;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), background var(--transition);
+  z-index: 1;
+}
+
+[data-theme="light"] .toggle-thumb {
+  transform: translateX(28px);
+}
+
+.toggle-icon {
+  position: absolute;
+  font-size: 13px;
+  color: var(--text-muted);
+  transition: opacity 0.2s;
+  z-index: 0;
+}
+
+.toggle-icon.sun  { right: 7px; }
+.toggle-icon.moon { left: 7px; }
+
+[data-theme="light"] .toggle-icon.sun  { opacity: 0; }
+[data-theme="light"] .toggle-icon.moon { opacity: 1; }
+[data-theme="dark"]  .toggle-icon.sun  { opacity: 1; }
+[data-theme="dark"]  .toggle-icon.moon { opacity: 0; }
+
 /* HERO SECTION */
 .hero {
   position: relative;
