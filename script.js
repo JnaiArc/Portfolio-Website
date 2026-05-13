@@ -120,3 +120,70 @@ function releaseCard() {
 
 card.addEventListener("pointerup", releaseCard);
 card.addEventListener("pointercancel", releaseCard);
+
+
+// Photo Tilt Effect
+const photoWrap = document.querySelector(".about-photo-wrap");
+const photo = document.querySelector(".about-photo");
+
+photoWrap.addEventListener("mousemove", (e) => {
+  const rect = photoWrap.getBoundingClientRect();
+
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top; 
+
+  const centerX = rect.width / 2;
+  const centerY = rect.height / 2;
+
+  const rotateX = ((y - centerY) / centerY) * -15; 
+  const rotateY = ((x - centerX) / centerX) * 15;  
+
+  photo.style.transform = `
+    rotateX(${rotateX}deg)
+    rotateY(${rotateY}deg)
+    scale(1.03)
+  `;
+});
+
+photoWrap.addEventListener("mouseleave", () => {
+  photo.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+});
+
+// Scroll effects
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const el = entry.target;
+
+    if (entry.isIntersecting) {
+      el.classList.add("show");
+    } else {
+      // IMPORTANT: reset when leaving viewport so it can replay
+      el.classList.remove("show");
+    }
+  });
+}, {
+  threshold: 0.2
+});
+
+const hero = document.querySelector(".hero");
+observer.observe(hero);
+
+document.querySelectorAll(".reveal").forEach(el => {
+  observer.observe(el);
+});
+
+// Animate on nav click
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    const targetId = link.getAttribute('href');
+    const target = document.querySelector(targetId);
+
+    if (!target) return;
+
+    target.classList.remove("show");
+
+    setTimeout(() => {
+      target.classList.add("show");
+    }, 50);
+  });
+});

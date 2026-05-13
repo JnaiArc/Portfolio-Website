@@ -99,7 +99,7 @@ body {
 }
 
 
-/* ---- Theme Toggle ---- */
+/* THEME TOGGLE */
 .theme-toggle {
   background: none;
   border: none;
@@ -154,7 +154,7 @@ body {
 [data-theme="dark"]  .toggle-icon.moon { opacity: 0; }
 
 
-/* HERO SECTION */
+/* --- HERO SECTION --- */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -176,7 +176,6 @@ body {
   align-items: center;
 }
 
-/* LEFT CONTENT */
 .hero-content {
   display: flex;
   flex-direction: column;
@@ -191,7 +190,6 @@ body {
   text-transform: uppercase;
   color: var(--accent);
   opacity: 0;
-  animation: fadeUp 0.7s ease 0.1s forwards;
 }
 
 .hero-name {
@@ -202,7 +200,6 @@ body {
   letter-spacing: -0.03em;
   color: var(--text-primary);
   opacity: 0;
-  animation: fadeUp 0.75s ease 0.2s forwards;
 }
 
 .hero-tagline {
@@ -212,7 +209,6 @@ body {
   color: var(--text-muted);
   letter-spacing: 0.01em;
   opacity: 0;
-  animation: fadeUp 0.75s ease 0.35s forwards;
 }
 
 .divider {
@@ -227,10 +223,8 @@ body {
   line-height: 1.75;
   max-width: 500px;
   opacity: 0;
-  animation: fadeUp 0.75s ease 0.45s forwards;
 }
 
-/* RIGHT CONTENT */
 .hero-image-wrap {
   position: relative;
   display: flex;
@@ -268,7 +262,6 @@ body {
   box-shadow: 0 2px 6px rgba(0,0,0,0.35);
 }
 
-/* CARD BODY */
 .card-body {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -348,7 +341,6 @@ body {
   flex-shrink: 0;
 }
 
-/* BACKGROUND ORBS */
 .orb {
   position: absolute;
   border-radius: 50%;
@@ -375,8 +367,6 @@ body {
   animation: drift 14s ease-in-out infinite alternate-reverse;
 }
 
-
-/* SCROLL INDICATOR */
 .scroll-indicator {
   position: absolute;
   bottom: 28px;
@@ -487,7 +477,9 @@ body {
   transform: scale(1.15);
 }
 
-/* ABOUT SECTION */
+
+
+/* --- ABOUT SECTION --- */
 .about-section {
   position: relative;
   padding: 100px 64px 120px;
@@ -519,7 +511,7 @@ body {
   white-space: nowrap;
 }
  
-/* ---- PART 1 ---- */
+/* PART 1 */
 .about-main {
   display: grid;
   grid-template-columns: 320px 1fr;
@@ -539,11 +531,15 @@ body {
   width: 260px;
   height: 320px;
   position: relative;
+  perspective: 1000px;
 }
- 
+
 .about-photo,
 .about-photo-border {
   border-radius: 16px;
+  transition: transform 0.15s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
  
 .about-photo-accent {
@@ -690,6 +686,52 @@ body {
   min-height: 100vh;
 }
 
+
+
+/* ================= SCROLL REVEAL ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.4,0,0.2,1);
+}
+
+.reveal-left {
+  transform: translateX(-60px);
+}
+
+.reveal-right {
+  transform: translateX(60px);
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.hero-content > * {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: none; 
+}
+
+.hero.show .hero-content > * {
+  animation: heroFade 0.8s forwards;
+}
+
+.hero.show .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+.hero.show .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+.hero.show .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+.hero.show .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes heroFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
 /* ANIMATIONS */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(28px); }
@@ -750,7 +792,6 @@ body {
 
 
 /* RESPONSIVE */
-/* Large tablets / small laptops */
 @media (max-width: 1024px) {
   .hero-inner {
     grid-template-columns: 1fr 320px;
@@ -770,7 +811,6 @@ body {
   }
 }
 
-/* Tablets */
 @media (max-width: 900px) {
   .hero-inner {
     grid-template-columns: 1fr;
@@ -799,7 +839,6 @@ body {
   }
 }
 
-/* Phones */
 @media (max-width: 600px) {
   html {
     font-size: 14px;
@@ -846,7 +885,6 @@ body {
   }
 }
 
-/* Very small phones */
 @media (max-width: 380px) {
   .hero-name {
     font-size: 34px;
