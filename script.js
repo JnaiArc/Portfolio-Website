@@ -187,3 +187,53 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     }, 50);
   });
 });
+
+
+
+// Projects section interactions
+(function () {
+
+  // tab switching
+  const tabs       = document.querySelectorAll('.proj-tab');
+  const panels     = document.querySelectorAll('.proj-panel');
+  const indicator  = document.querySelector('.tab-indicator');
+
+  function moveIndicator(tab) {
+    const tabsBox = tab.closest('.proj-tabs').getBoundingClientRect();
+    const tabBox  = tab.getBoundingClientRect();
+    indicator.style.width  = tabBox.width  + 'px';
+    indicator.style.left   = (tabBox.left - tabsBox.left) + 'px';
+  }
+
+  function activateTab(tab) {
+    const target = tab.dataset.tab;
+
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    moveIndicator(tab);
+
+    panels.forEach(p => {
+      if (p.dataset.panel === target) {
+        p.classList.remove('animating-in');
+        void p.offsetWidth;                    
+        p.classList.add('active', 'animating-in');
+      } else {
+        p.classList.remove('active', 'animating-in');
+      }
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => activateTab(tab));
+  });
+
+  const activeTab = document.querySelector('.proj-tab.active');
+  if (activeTab) {
+    requestAnimationFrame(() => moveIndicator(activeTab));
+  }
+
+  window.addEventListener('resize', () => {
+    const current = document.querySelector('.proj-tab.active');
+    if (current) moveIndicator(current);
+  });
+})();
