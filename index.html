@@ -492,9 +492,74 @@
     </div>
   </section>
 
-  <!-- OTHER SECTIONS -->
-  <section id="contact" class="walapa"></section>
+  <!-- ===================== CONTACT SECTION ===================== -->
+  <div class="contact-inner"></div>
+    <section id="contact" class="contact-section">
 
+      <div class="section-label reveal">
+        <span class="label-line"></span>
+        <span class="label-text">Get In Touch</span>
+        <span class="label-line"></span>
+      </div>
+
+      <div class="contact-container">
+        <div class="contact-info reveal reveal-left">
+          <h2>Let’s build something meaningful<span class="dot">.</span></h2>
+          <p>
+            If you have an idea, I’d love to hear it and help bring it to life.
+          </p>
+
+          <div class="contact-details">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=arcenaljonalyn5@gmail.com" class="contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>arcenaljonalyn5@gmail.com</span>
+            </a>
+
+            <a href="https://github.com/JnaiArc" target="_blank" class="contact-item">
+              <i class="fa-brands fa-github"></i>
+              <span>github.com/JnaiArc</span>
+            </a>
+
+            <a href="https://facebook.com/jonalyn.arcenal.77" target="_blank" class="contact-item">
+              <i class="fa-brands fa-facebook"></i>
+              <span>facebook.com/jonalyn.arcenal.77</span>
+            </a>
+
+          </div>
+        </div>
+
+        <form class="contact-form reveal reveal-right" id="contactForm">
+
+          <div class="form-group">
+            <input type="text" name="name" required>
+            <label>Name</label>
+          </div>
+
+          <div class="form-group">
+            <input type="email" name="email" required>
+            <label>Email</label>
+          </div>
+
+          <div class="form-group">
+            <textarea name="message" required></textarea>
+            <label>Message</label>
+          </div>
+
+          <button type="submit" class="contact-btn">
+            Send Message
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+
+        </form>
+
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init("mdC91odrNkOGBEI4s");
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
