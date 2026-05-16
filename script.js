@@ -237,3 +237,44 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     if (current) moveIndicator(current);
   });
 })();
+
+
+// EMAILJS
+(function () {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const btn = form.querySelector("button");
+    const original = btn.innerHTML;
+
+    btn.innerHTML = "Sending...";
+    btn.disabled = true;
+
+    emailjs.sendForm(
+      "service_c2weogt",
+      "template_p9dtxi6",
+      form
+    )
+    .then(() => {
+      btn.innerHTML = "Message Sent ✓";
+
+      setTimeout(() => {
+        btn.innerHTML = original;
+        btn.disabled = false;
+        form.reset();
+      }, 2000);
+    })
+    .catch((err) => {
+      console.error(err);
+      btn.innerHTML = "Failed to send";
+
+      setTimeout(() => {
+        btn.innerHTML = original;
+        btn.disabled = false;
+      }, 2000);
+    });
+  });
+})();
