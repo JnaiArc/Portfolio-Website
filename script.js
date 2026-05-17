@@ -157,7 +157,6 @@ const observer = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       el.classList.add("show");
     } else {
-      // IMPORTANT: reset when leaving viewport so it can replay
       el.classList.remove("show");
     }
   });
@@ -259,7 +258,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
       form
     )
     .then(() => {
-      btn.innerHTML = "Message Sent ✓";
+      btn.innerHTML = "Message Sent";
 
       setTimeout(() => {
         btn.innerHTML = original;
